@@ -22,8 +22,7 @@ def add():
     newtask = Tasks(name=request.form['newtask'])
     db.session.add(newtask)
     db.session.commit()
-    return '{}'.format(request.form['newtask'])
-    #return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
