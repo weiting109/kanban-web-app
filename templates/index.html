@@ -9,25 +9,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="kanban_stylesheet.css">
     <style>
-      #header {
+      #header, .banner {
         background-color: #2f2f2f; /* Black Gray */
         color: #fff;
         text-align: center;
+        padding: 10px;
+      }
+      .empty-banner {
+        background-color: #ffffff; /* White */
+        padding: 10px;
       }
       .bg-1 {
         background-color: #ffffff; /* White */
         color: #555555;
       }
+      .card {
+        padding: 10 10 10 10;
+      }
+      .col-title{
+        padding: 2px 10px 2px 10px;
+      }
     </style>
   </head>
   <body>
     <div class="container-fluid">
+
       <div class="row" id="header">
         <div class="col">
           <h1> Kanban board </h1>
         </div>
       </div>
-      <div class="row">
+
+      <div class="row banner">
         <div class="col">
           Add a new to-do item:
           <form action="{{ url_for('add') }}" method="POST">
@@ -36,32 +49,68 @@
           </form>
         </div>
       </div>
+
+      <div class="row empty-banner"></div>
+
       <div class="row">
+
         <div class="col-sm-4">
-          <h2> To-do </h2>
-          <ul>
-            {% for item in todo %}
-            <li>{{ item.name }}</li>
-            {% endfor %}
-          </ul>
+          <div class="row">
+            <h2 class="col-title"> To-do </h2>
+          </div>
+
+          {% for item in todo %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.desc }}</p>
+              <a href="#" class="btn btn-primary">Get started!</a>
+            </div>
+          </div>
+          {% endfor %}
+
         </div>
+
         <div class="col-sm-4">
-          <h2> Doing </h2>
-          <ul>
-            <li>Item</li>
-            <li>Item</li>
-            <li>Item</li>
-          </ul>
+          <div class="row">
+            <h2 class="col-title"> Doing </h2>
+          </div>
+          {% for item in doing %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.desc }}</p>
+              <a href="#" class="btn btn-primary">Done!</a>
+            </div>
+          </div>
+          {% endfor %}
         </div>
+
         <div class="col-sm-4">
-          <h2> Done </h2>
-          <ul>
-            <li>Item</li>
-            <li>Item</li>
-            <li>Item</li>
-          </ul>
+          <div class="row">
+            <h2 class="col-title"> Done </h2>
+          </div>
+          {% for item in done %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.desc }}</p>
+              <a href="#" class="btn btn-primary">Clear</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+
+      <div class="row empty-banner"></div>
+
+      <div class="row banner">
+        <div class="col text-center">
+          <input type="submit">
         </div>
       </div>
+
   </div>
   </body>
 </html>
