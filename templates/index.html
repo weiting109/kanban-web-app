@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kanban Board</title>
+    <meta name="author" content="Wei-Ting Yap">
+    <meta name="description" content="Basic Kanban web application.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="kanban_stylesheet.css">
+    <style>
+      #header {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+        text-align: center;
+      }
+      .bg-1 {
+        background-color: #ffffff; /* White */
+        color: #555555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" id="header">
+        <div class="col">
+          <h1> Kanban board </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Add a new to-do item:
+          <form>
+            <input type="text" name="todoitem">
+            <input type="submit" value="Add item">
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h2> To-do </h2>
+          <ul>
+            {% for item in todo %}
+            <li>{{ item.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <h2> Doing </h2>
+          <ul>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <h2> Done </h2>
+          <ul>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  </body>
+</html>

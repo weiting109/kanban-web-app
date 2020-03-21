@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kanban Board</title>
+    <meta name="author" content="Wei-Ting Yap">
+    <!-- A description that includes keywords relating to the content of page is useful for SEO.
+    It also displays in the description section of a page result on search engines.-->
+    <meta name="description" content="Basic Kanban web application.">
+    <!-- Use open graph metadata protocol for Facebook previews;
+    link rel="icon" for favicons
+    https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="kanban_stylesheet.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+      <meta charset="utf-8">
+      <title>Kanban Board</title>
+      <meta name="author" content="Wei-Ting Yap">
+      <!-- A description that includes keywords relating to the content of page is useful for SEO.
+      It also displays in the description section of a page result on search engines.-->
+      <meta name="description" content="Basic Kanban web application.">
+      <!-- Use open graph metadata protocol for Facebook previews;
+      link rel="icon" for favicons
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML-->
+      <link rel="stylesheet" href="kanban_stylesheet.css">
+  </head>
+  <body>
+    <h1 style="text-align:center;">Kanban 1.0</h1>
+    <div class="row">
+        <div class="column" style="background-color:lightgray;">
+          <div class="col-title">To do</div>
+          <ul>
+            <li> Task </li>
+          </ul>
+        </div>
+        <div class="column">
+          <div class="col-title">Doing</div>
+          <ul>
+            <li> Task </li>
+          </ul>
+        </div>
+        <div class="column" style="background-color:lightgray;">
+          <div class="col-title">Done</div>
+          <ul>
+            <li> Task </li>
+          </ul>
+        </div>
+        <div class="column">
+          <div class="col title">Add task</div>
+            <form action="/my-handling-form-page" method="post">
+              <ul>
+                <li>
+                  <label for="task">Task name:</label>
+                  <input type="text" id="task" name="user_name">
+                </li>
+                <li>
+                  <label for="desc">Description:</label>
+                  <input type="email" id="desc" name="user_mail">
+                </li>
+                <li>
+                  <fieldset>
+                    <legend>task status</legend>
+                    <p>
+                      <input type="radio" name="status" id="status_1" value="to-do">
+                      <label for="status_1">To-do</label>
+                    </p>
+                    <p>
+                      <input type="radio" name="status" id="status_2" value="doing">
+                      <label for="status_2">Doing</label>
+                    </p>
+                    <p>
+                      <input type="radio" name="status" id="status_3" value="done">
+                      <label for="status_3">Done</label>
+                    </p>
+                  </fieldset>
+                  <label for="status">Status:</label>
+                  <textarea id="msg" name="user_message"></textarea>
+                </li>
+                <li class="button">
+                  <button type="submit">Send your message</button>
+                </li>
+              </ul>
+          </form>
+        </div>
+    </div>
+      <script></script>
+  </body>
+</html>
