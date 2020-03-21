@@ -64,7 +64,9 @@
             <div class="card-body">
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
-              <a href="#" class="btn btn-primary">Get started!</a>
+              <form action="{{ url_for('update') }}" method="POST">
+                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Get started!</button>
+              </form>
             </div>
           </div>
           {% endfor %}
@@ -80,7 +82,9 @@
             <div class="card-body">
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
-              <a href="#" class="btn btn-primary">Done!</a>
+              <form action="{{ url_for('update') }}" method="POST">
+                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Done!</button>
+              </form>
             </div>
           </div>
           {% endfor %}
@@ -95,7 +99,9 @@
             <div class="card-body">
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
-              <a href="#" class="btn btn-primary">Clear</a>
+              <form action="{{ url_for('update') }}" method="POST">
+                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Clear</button>
+              </form>
             </div>
           </div>
           {% endfor %}
@@ -107,7 +113,7 @@
 
       <div class="row banner">
         <div class="col text-center">
-          <input type="submit">
+          <p> Kanban web app by Wei-Ting Yap for CS162: Software Development, Spring 2020, Minerva Schools at KGI.</p>
         </div>
       </div>
 
