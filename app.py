@@ -17,5 +17,13 @@ def index():
     todo = Tasks.query.filter_by(status='todo').all()
     return render_template('index.html', todo=todo)
 
+@app.route('/add', methods=['POST'])
+def add():
+    newtask = Tasks(name=request.form['newtask'])
+    db.session.add(newtask)
+    db.session.commit()
+    return '{}'.format(request.form['newtask'])
+    #return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True)

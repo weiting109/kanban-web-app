@@ -30,9 +30,9 @@
       <div class="row">
         <div class="col">
           Add a new to-do item:
-          <form>
-            <input type="text" name="todoitem">
-            <input type="submit" value="Add item">
+          <form action="{{ url_for('add') }}" method="POST">
+            <input type="text" name="newtask">
+            <input type="submit">
           </form>
         </div>
       </div>
