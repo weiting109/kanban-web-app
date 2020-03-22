@@ -7,12 +7,9 @@
     <meta name="description" content="Basic Kanban web application.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="kanban_stylesheet.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
     <style>
-      #header, .banner {
-        background-color: #2f2f2f; /* Black Gray */
-        color: #fff;
-        text-align: center;
+      #header, .banner{
         padding: 10px;
       }
       .empty-banner {
@@ -20,6 +17,10 @@
         padding: 10px;
       }
       .bg-1 {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+      }
+      .bg-2 {
         background-color: #ffffff; /* White */
         color: #555555;
       }
@@ -29,20 +30,21 @@
       .col-title{
         padding: 2px 10px 2px 10px;
       }
+
     </style>
   </head>
   <body>
     <div class="container-fluid">
 
-      <div class="row" id="header">
+      <div class="row bg-1 text-center" id="header">
         <div class="col">
           <h1> Kanban board </h1>
         </div>
       </div>
 
-      <div class="row banner">
+      <div class="row banner bg-1">
         <div class="col">
-          Add a new to-do item:
+          Add a new item:
           <form action="{{ url_for('add') }}" method="POST">
             <input type="text" name="newtask">
             <input type="submit">
