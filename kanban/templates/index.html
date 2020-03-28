@@ -33,6 +33,13 @@
                 <label for="newtask_desc">Task description</label>
                 <input type="text" class="form-control" id="newtask_desc" name="newtask_desc">
               </div>
+              <label for=newtask_status>Task status</label>
+              <select class="custom-select" id="newtask_status" name="newtask_status">
+                <option selected value="todo">To-do</option> <!-- default status: to-do-->
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+              </select>
+              <div><br /><br /></div>
               <button type="submit" class="btn btn-light">Submit</button>
             </form>
             <br />

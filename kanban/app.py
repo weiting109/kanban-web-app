@@ -30,7 +30,7 @@ def add():
     """
     Add a new task to the Kanban board (default status = todo)
     """
-    newtask = Tasks(name=request.form['newtask_name'],desc=request.form['newtask_desc'])
+    newtask = Tasks(name=request.form['newtask_name'],desc=request.form['newtask_desc'], status=request.form['newtask_status'])
     db.session.add(newtask)
     db.session.commit()
     return redirect(url_for('index'))
