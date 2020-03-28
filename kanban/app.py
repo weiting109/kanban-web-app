@@ -44,7 +44,6 @@ def update(id):
     """
     #id = request.form['updatebtn'] #id of item to be updated - no longer needed as id is passed through URL
     item = Tasks.query.filter_by(id=id).first() #find corresponding record
-    print(item.status)
     if item.status == 'todo':
         item.status = 'doing'
     elif item.status == 'doing':
