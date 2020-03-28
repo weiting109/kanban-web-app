@@ -5,6 +5,9 @@
   background-color: #ffffff; /* White */
   padding: 10px;
 }
+.betw-card{
+  padding: 5px;
+}
 .bg-1 {
   background-color: #2f2f2f; /* Black Gray */
   color: #fff;

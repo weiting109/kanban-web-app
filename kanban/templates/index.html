@@ -20,9 +20,13 @@
       </div>
 
       <div class="row">
-
         <div class="col-sm-3 bg-3">
           <div class="col">
+            {% if ntasks == 0 %}
+            <div class="row" style="background:red;color:black;margin-top:10px;">
+              Oops, you have no active tasks. Add tasks now!
+            </div>
+            {% endif %}
             <h2 class="col-title"> Add a new item </h2>
             <form action="{{ url_for('add') }}" method="POST">
               <div class="form-group">
@@ -61,6 +65,7 @@
               </form>
             </div>
           </div>
+          <div class="row betw-card"></div>
           {% endfor %}
 
         </div>
@@ -79,6 +84,7 @@
               </form>
             </div>
           </div>
+          <div class="row betw-card"></div>
           {% endfor %}
         </div>
 
@@ -96,6 +102,7 @@
               </form>
             </div>
           </div>
+          <div class="row betw-card"></div>
           {% endfor %}
         </div>
 

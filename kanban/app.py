@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__) #instantiate Flask app
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///web.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///kanban.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app) #instantiate SQLAlchemy
@@ -20,10 +20,11 @@ def index():
     """
     Render templates and display tasks according to status
     """
+    ntasks = Tasks.query.count()
     todo = Tasks.query.filter_by(status='todo').all()
     doing = Tasks.query.filter_by(status='doing').all()
     done = Tasks.query.filter_by(status='done').all()
-    return render_template('index.html', todo=todo, doing=doing, done=done)
+    return render_template('index.html', ntasks=ntasks,todo=todo, doing=doing, done=done)
 
 @app.route('/add/', methods=['POST'])
 def add():
@@ -49,6 +50,8 @@ def update(id):
     elif item.status == 'doing':
         item.status = 'done'
     else:
+        #item.status='archived'
+        #archived status for possible future expansion (undoing archive, for e.g./retrieving monthly report)
         db.session.delete(item)
     db.session.commit()
     return redirect(url_for('index'))
