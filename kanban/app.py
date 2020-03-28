@@ -7,16 +7,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app) #instantiate SQLAlchemy
 
-class Tasks(db.Model):
+class Tasks(db.Model): #create table using db.Model base class to store tasks
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200))
     desc = db.Column(db.String,default='')
     status = db.Column(db.String, default='todo')
 
-db.create_all()
+db.create_all() #create all tables
 
 @app.route('/')
 def index():
+    """
+    Render templates and display tasks according to status
+    """
     todo = Tasks.query.filter_by(status='todo').all()
     doing = Tasks.query.filter_by(status='doing').all()
     done = Tasks.query.filter_by(status='done').all()
@@ -24,6 +27,9 @@ def index():
 
 @app.route('/add/', methods=['POST'])
 def add():
+    """
+    Add a new task to the Kanban board (default status = todo)
+    """
     newtask = Tasks(name=request.form['newtask'])
     db.session.add(newtask)
     db.session.commit()
@@ -31,6 +37,10 @@ def add():
 
 @app.route('/update/<int:id>/', methods=['POST'])
 def update(id):
+    """
+    Update status of tasks to the next status in the following order: todo, doing, done.
+    If task is done, update deletes the task from the board.
+    """
     #id = request.form['updatebtn'] #id of item to be updated - no longer needed as id is passed through URL
     item = Tasks.query.filter_by(id=id).first() #find corresponding record
     print(item.status)
