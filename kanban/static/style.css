@@ -1,8 +1,21 @@
+#header, .banner{
+  padding: 10px;
+}
+.empty-banner {
+  background-color: #ffffff; /* White */
+  padding: 10px;
+}
 .bg-1 {
+  background-color: #2f2f2f; /* Black Gray */
+  color: #fff;
+}
+.bg-2 {
   background-color: #ffffff; /* White */
   color: #555555;
 }
-.bg-2 {
-  background-color: #2f2f2f; /* Black Gray */
-  color: #fff;
+.card {
+  padding: 10 10 10 10;
+}
+.col-title{
+  padding: 2px 10px 2px 10px;
 }
