@@ -20,19 +20,18 @@ def index():
     todo = Tasks.query.filter_by(status='todo').all()
     doing = Tasks.query.filter_by(status='doing').all()
     done = Tasks.query.filter_by(status='done').all()
-    return "Hello"
-    #return render_template('index.html', todo=todo, doing=doing, done=done)
+    return render_template('index.html', todo=todo, doing=doing, done=done)
 
-@app.route('/add', methods=['POST'])
+@app.route('/add/', methods=['POST'])
 def add():
     newtask = Tasks(name=request.form['newtask'])
     db.session.add(newtask)
     db.session.commit()
     return redirect(url_for('index'))
 
-@app.route('/update', methods=['POST'])
-def update():
-    id = request.form['updatebtn'] #id of item to be updated
+@app.route('/update/<int:id>/', methods=['POST'])
+def update(id):
+    #id = request.form['updatebtn'] #id of item to be updated - no longer needed as id is passed through URL
     item = Tasks.query.filter_by(id=id).first() #find corresponding record
     print(item.status)
     if item.status == 'todo':
