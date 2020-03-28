@@ -8,30 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-    <style>
-      #header, .banner{
-        padding: 10px;
-      }
-      .empty-banner {
-        background-color: #ffffff; /* White */
-        padding: 10px;
-      }
-      .bg-1 {
-        background-color: #2f2f2f; /* Black Gray */
-        color: #fff;
-      }
-      .bg-2 {
-        background-color: #ffffff; /* White */
-        color: #555555;
-      }
-      .card {
-        padding: 10 10 10 10;
-      }
-      .col-title{
-        padding: 2px 10px 2px 10px;
-      }
 
-    </style>
   </head>
   <body>
     <div class="container-fluid">
@@ -42,21 +19,27 @@
         </div>
       </div>
 
-      <div class="row banner bg-1">
-        <div class="col">
-          Add a new item:
-          <form action="{{ url_for('add') }}" method="POST">
-            <input type="text" name="newtask">
-            <input type="submit">
-          </form>
-        </div>
-      </div>
-
-      <div class="row empty-banner"></div>
-
       <div class="row">
 
-        <div class="col-sm-4">
+        <div class="col-sm-3 bg-3">
+          <div class="col">
+            <h2 class="col-title"> Add a new item </h2>
+            <form action="{{ url_for('add') }}" method="POST">
+              <div class="form-group">
+                <label for="newtask_name">Task name</label>
+                <input type="text" class="form-control" id="newtask_name" name="newtask_name">
+              </div>
+              <div class="form-group">
+                <label for="newtask_desc">Task description</label>
+                <input type="text" class="form-control" id="newtask_desc" name="newtask_desc">
+              </div>
+              <button type="submit" class="btn btn-light">Submit</button>
+            </form>
+            <br />
+          </div>
+        </div>
+
+        <div class="col-sm-3">
           <div class="row">
             <h2 class="col-title"> To-do </h2>
           </div>
@@ -67,7 +50,7 @@
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
               <form action="{{ url_for('update', id=item.id) }}" method="POST">
-                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Get started!</button>
+                <button type="submit" class="btn btn-dark" name="updatebtn" value="{{ item.id }}">Get started!</button>
               </form>
             </div>
           </div>
@@ -75,7 +58,7 @@
 
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="row">
             <h2 class="col-title"> Doing </h2>
           </div>
@@ -85,14 +68,14 @@
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
               <form action="{{ url_for('update', id=item.id) }}" method="POST">
-                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Done!</button>
+                <button type="submit" class="btn btn-dark" name="updatebtn" value="{{ item.id }}">Done!</button>
               </form>
             </div>
           </div>
           {% endfor %}
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="row">
             <h2 class="col-title"> Done </h2>
           </div>
@@ -102,7 +85,7 @@
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.desc }}</p>
               <form action="{{ url_for('update', id=item.id) }}" method="POST">
-                <button type="submit" class="btn btn-primary" name="updatebtn" value="{{ item.id }}">Clear</button>
+                <button type="submit" class="btn btn-dark" name="updatebtn" value="{{ item.id }}">Clear</button>
               </form>
             </div>
           </div>
