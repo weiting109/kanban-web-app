@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__) #instantiate Flask app
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/weiting/School/19-20/cs162/kanban/kanban.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///web.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app) #instantiate SQLAlchemy
 
@@ -13,12 +13,15 @@ class Tasks(db.Model):
     desc = db.Column(db.String,default='')
     status = db.Column(db.String, default='todo')
 
+db.create_all()
+
 @app.route('/')
 def index():
     todo = Tasks.query.filter_by(status='todo').all()
     doing = Tasks.query.filter_by(status='doing').all()
     done = Tasks.query.filter_by(status='done').all()
-    return render_template('index.html', todo=todo, doing=doing, done=done)
+    return "Hello"
+    #return render_template('index.html', todo=todo, doing=doing, done=done)
 
 @app.route('/add', methods=['POST'])
 def add():
