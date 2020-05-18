@@ -16,16 +16,16 @@ The app is created with the Flask microframework, using flask_sqlalchemy's abstr
 
 ## Instructions
 
-###To run the app:
-`
+To run the app:
+```
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ pip3 install -r requirements.txt
 $ export FLASK_APP=kanban
 $ flask run
-`
+```
 
-###To test the app:
-`
+To test the app:
+```
 $ pytest
-`
+```
