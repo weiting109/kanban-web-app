@@ -2,10 +2,6 @@
 
 ## Author
 Wei-Ting Yap
-for
-Prof. Sterne
-Minerva Schools at KGI
-CS162: Software Development, Spring 2020
 
 ## About the project
 Basic Kanban web app that allows any user to:
